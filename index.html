@@ -204,11 +204,9 @@
         </div>
         
         <div class="message" id="message">
-            December 26, December 262026, 2026 00:00:00 - Don't miss out on incredible savings!
-        </div>
+            December 26, 2026 - Don't miss out on incredible savings!        </div>
         
-        <p class="date-display">📅 Boxing Day: December 26, December 262026, 2026 00:00:00</p>
-    </div>
+        <p class="date-display">📅 Boxing Day: December 26, 2026</p>    </div>
 
     <script>
         // Create snowflakes
@@ -232,11 +230,10 @@
 
         // Countdown Timer
         function updateCountdown() {
-            const boxingDay = new Date('2026 00:00:00').getTime();
-            const now = new Date().getTime();
+            const boxingDay = new Date('December 26, 2026 00:00:00').getTime();207            const now = new Date().getTime();
             const distance = boxingDay - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const days = Math.floor('December 26, 2026 00:00:00' / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
