@@ -2,216 +2,333 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boxing Day Countdown</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Boxing Day Countdown 2026 | The Ultimate Holiday Sale Tracker</title>
+    <meta name="description" content="Witness the magic of the Boxing Day countdown. Track every second until the biggest shopping event of 2026 with our elegant, high-precision live timer.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --accent: #ffcf7d; /* Champagne Gold */
+            --bg-base: #020617;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(136, 19, 55, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, #020617 0%, #000 100%);
             min-height: 100vh;
+            /* Allow vertical scrolling on small mobile if content overflows */
+            min-height: -webkit-fill-available; 
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        .snowflakes {
+        /* Animated Mesh Gradient Overlays */
+        body::before, body::after {
+            content: "";
             position: absolute;
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+            z-index: -1;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        body::before {
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+            animation: move-1 20s infinite alternate linear;
+        }
+
+        body::after {
+            background: radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.08) 0%, transparent 50%);
+            animation: move-2 25s infinite alternate linear;
+        }
+
+        @keyframes move-1 {
+            from { transform: translate(-10%, -10%) rotate(0deg); }
+            to { transform: translate(10%, 10%) rotate(360deg); }
+        }
+
+        @keyframes move-2 {
+            from { transform: translate(10%, 10%) rotate(0deg); }
+            to { transform: translate(-10%, -10%) rotate(-360deg); }
+        }
+
+        #snow-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            overflow: hidden;
-        }
-
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            color: rgba(255,255,255,0.8);
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            to { transform: translateY(100vh); }
+            z-index: 1;
         }
 
         .container {
-            z-index: 1;
+            position: relative;
+            z-index: 10;
             text-align: center;
-            background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(10px);
-            padding: 60px 40px;
-            border-radius: 30px;
-            max-width: 800px;
-            width: 90%;
-            color: #fff;
-            animation: fadeIn 1s ease;
+            width: 100%;
+            max-width: 1100px;
+            padding: 40px 20px;
+            margin: auto;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 {
-            font-size: 3.2em;
-            margin-bottom: 20px;
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            /* Fluid typography: Min 2rem, Max 5.5rem */
+            font-size: clamp(2.2rem, 8vw, 5.5rem);
+            font-style: italic;
+            background: linear-gradient(to bottom, #ffffff 0%, #d1d5db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
         }
 
         .subtitle {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: clamp(2px, 1vw, 5px);
+            text-transform: uppercase;
+            font-size: clamp(0.7rem, 2vw, 0.85rem);
+            color: var(--accent);
+            margin-bottom: clamp(30px, 8vw, 60px);
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(255, 207, 125, 0.3);
         }
 
+        /* Countdown Grid - Highly Responsive */
         .countdown {
             display: flex;
-            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            gap: clamp(12px, 3vw, 30px);
+            perspective: 1000px;
         }
 
-        .time-box {
-            background: rgba(255,255,255,0.2);
-            padding: 25px 20px;
-            border-radius: 15px;
-            min-width: 110px;
-            transition: transform 0.3s;
+        .unit {
+            position: relative;
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            /* Adaptive padding */
+            padding: clamp(15px, 4vw, 40px) clamp(10px, 2vw, 20px);
+            border-radius: clamp(15px, 3vw, 30px);
+            /* Adaptive width */
+            flex: 0 1 clamp(70px, 22%, 160px);
+            min-width: 80px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .time-box:hover {
-            transform: scale(1.08);
+        /* Hover only for devices with a pointer (not touch) */
+        @media (hover: hover) {
+            .unit:hover {
+                transform: translateY(-12px);
+                background: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 207, 125, 0.4);
+                box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.9);
+            }
         }
 
-        .time {
-            font-size: 3em;
-            font-weight: 700;
+        .number {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 4.5rem);
+            font-weight: 600;
             display: block;
+            margin-bottom: 5px;
+            color: #fff;
+            letter-spacing: -1px;
         }
 
         .label {
-            margin-top: 8px;
-            font-size: 0.9em;
-            letter-spacing: 2px;
+            font-size: clamp(0.55rem, 1.5vw, 0.75rem);
             text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            font-weight: 600;
             opacity: 0.9;
         }
 
-        .message {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 10px;
-            font-size: 1.2em;
+        .footer-info {
+            margin-top: clamp(40px, 10vw, 80px);
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 10px;
         }
 
-        .date-display {
-            margin-top: 15px;
-            opacity: 0.85;
+        .footer-info p {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            line-height: 1.8;
+            color: #94a3b8;
+            font-weight: 300;
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.4em; }
-            .time { font-size: 2.2em; }
-            .container { padding: 40px 20px; }
+        /* Mobile specific adjustments for very small screens */
+        @media (max-width: 360px) {
+            .countdown {
+                gap: 8px;
+            }
+            .unit {
+                min-width: 70px;
+                padding: 15px 5px;
+            }
+        }
+
+        /* Landscape orientation fix for mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            body { align-items: flex-start; }
+            .container { padding: 20px; }
+            header h1 { font-size: 2.5rem; }
+            .subtitle { margin-bottom: 20px; }
+            .footer-info { margin-top: 30px; }
         }
     </style>
 </head>
-
 <body>
 
-<div class="snowflakes" id="snowflakes"></div>
+<canvas id="snow-canvas"></canvas>
 
-<div class="container">
-    <h1>🎁 Boxing Day Countdown 🎁</h1>
-    <p class="subtitle">Get Ready for Amazing Deals!</p>
+<main class="container">
+    <header>
+        <h1>The Boxing Day</h1>
+        <p class="subtitle">Preparation for Greatness</p>
+    </header>
 
-    <div class="countdown" id="countdown">
-        <div class="time-box">
-            <span class="time" id="days">00</span>
+    <div class="countdown">
+        <div class="unit" aria-label="Days remaining">
+            <span class="number" id="days">00</span>
             <span class="label">Days</span>
         </div>
-        <div class="time-box">
-            <span class="time" id="hours">00</span>
+        <div class="unit" aria-label="Hours remaining">
+            <span class="number" id="hours">00</span>
             <span class="label">Hours</span>
         </div>
-        <div class="time-box">
-            <span class="time" id="minutes">00</span>
+        <div class="unit" aria-label="Minutes remaining">
+            <span class="number" id="minutes">00</span>
             <span class="label">Minutes</span>
         </div>
-        <div class="time-box">
-            <span class="time" id="seconds">00</span>
+        <div class="unit" aria-label="Seconds remaining">
+            <span class="number" id="seconds">00</span>
             <span class="label">Seconds</span>
         </div>
     </div>
 
-    <div class="message" id="message"></div>
-    <p class="date-display"></p>
-</div>
+    <section class="footer-info">
+        <p>
+            Experience the anticipation of the year's premier shopping event. 
+            Our <strong>Boxing Day countdown</strong> tracker is optimized for accuracy 
+            and elegance, ensuring you never miss a moment of the holiday sales.
+        </p>
+    </section>
+</main>
 
 <script>
-    // Snowflakes
-    function createSnowflakes() {
-        const container = document.getElementById('snowflakes');
-        const icons = ['❄', '❅', '❆'];
+    const canvas = document.getElementById('snow-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
 
-        for (let i = 0; i < 50; i++) {
-            const snow = document.createElement('div');
-            snow.className = 'snowflake';
-            snow.textContent = icons[Math.floor(Math.random() * icons.length)];
-            snow.style.left = Math.random() * 100 + '%';
-            snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
-            snow.style.animationDuration = (Math.random() * 3 + 3) + 's';
-            snow.style.animationDelay = Math.random() * 5 + 's';
-            container.appendChild(snow);
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height - canvas.height;
+            this.size = Math.random() * 1.5 + 0.5;
+            this.speed = Math.random() * 0.4 + 0.1;
+            this.opacity = Math.random() * 0.4 + 0.1;
+            this.velX = Math.random() * 0.4 - 0.2;
+        }
+        update() {
+            this.y += this.speed;
+            this.x += this.velX;
+            if (this.y > canvas.height) this.reset();
+        }
+        draw() {
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
         }
     }
-    createSnowflakes();
 
-    // Countdown Logic
-    function updateCountdown() {
+    function initParticles() {
+        particles = [];
+        // Lower particle count on mobile for performance
+        const particleCount = window.innerWidth < 768 ? 60 : 120;
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+
+    function updateTimer() {
         const now = new Date();
-        let boxingDay = new Date(now.getFullYear(), 11, 26);
+        let target = new Date(now.getFullYear(), 11, 26);
+        if (now > target) target = new Date(now.getFullYear() + 1, 11, 26);
 
-        if (now > boxingDay) {
-            boxingDay = new Date(now.getFullYear() + 1, 11, 26);
-        }
+        const diff = target - now;
+        
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
 
-        const diff = boxingDay - now;
-
-        if (diff <= 0) {
-            document.getElementById('countdown').innerHTML =
-                '<h2>🎉 Boxing Day is Here! 🎉</h2>';
-            document.getElementById('message').textContent =
-                'Happy Boxing Day! Enjoy the best deals!';
-            return;
-        }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        document.getElementById('days').textContent = String(days).padStart(2,'0');
-        document.getElementById('hours').textContent = String(hours).padStart(2,'0');
-        document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
-
-        const year = boxingDay.getFullYear();
-        document.getElementById('message').textContent =
-            `December 26, ${year} — Don’t miss out on incredible savings!`;
-        document.querySelector('.date-display').textContent =
-            `📅 Boxing Day: December 26, ${year}`;
+        document.getElementById('days').textContent = String(d).padStart(2, '0');
+        document.getElementById('hours').textContent = String(h).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(s).padStart(2, '0');
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    window.addEventListener('resize', () => {
+        resize();
+        initParticles();
+    });
+
+    resize();
+    initParticles();
+    animate();
+    setInterval(updateTimer, 1000);
+    updateTimer();
 </script>
 
 </body>
