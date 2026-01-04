@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boxing Day Countdown 2026</title>
-        <style>
+    <title>Boxing Day Countdown</title>
+
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -19,246 +20,199 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            position: relative;
         }
 
-        /* Animated background particles */
         .snowflakes {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
             pointer-events: none;
+            overflow: hidden;
         }
 
         .snowflake {
             position: absolute;
             top: -10px;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1em;
+            color: rgba(255,255,255,0.8);
             animation: fall linear infinite;
         }
 
         @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
+            to { transform: translateY(100vh); }
         }
 
         .container {
+            z-index: 1;
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.12);
             backdrop-filter: blur(10px);
             padding: 60px 40px;
             border-radius: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.18);
             max-width: 800px;
             width: 90%;
-            animation: fadeInUp 1s ease-out;
-            z-index: 1;
+            color: #fff;
+            animation: fadeIn 1s ease;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            color: #fff;
-            font-size: 3.5em;
+            font-size: 3.2em;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            font-weight: 700;
-        }
-
-        .emoji {
-            font-size: 1.2em;
-            display: inline-block;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
         }
 
         .subtitle {
-            color: rgba(255, 255, 255, 0.9);
             font-size: 1.3em;
             margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            opacity: 0.9;
         }
 
         .countdown {
             display: flex;
-            justify-content: center;
             gap: 20px;
+            justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 40px;
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            padding: 30px 25px;
+            background: rgba(255,255,255,0.2);
+            padding: 25px 20px;
             border-radius: 15px;
-            min-width: 120px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s ease;
+            min-width: 110px;
+            transition: transform 0.3s;
         }
 
         .time-box:hover {
-            transform: translateY(-10px) scale(1.05);
+            transform: scale(1.08);
         }
 
         .time {
-            font-size: 3.5em;
+            font-size: 3em;
             font-weight: 700;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             display: block;
-            line-height: 1;
         }
 
         .label {
+            margin-top: 8px;
             font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.9);
-            text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 10px;
-            font-weight: 600;
+            text-transform: uppercase;
+            opacity: 0.9;
         }
 
         .message {
-            color: #fff;
-            font-size: 1.2em;
             margin-top: 30px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,0.15);
             border-radius: 10px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            font-size: 1.2em;
         }
 
         .date-display {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1em;
-            margin-top: 20px;
-            font-weight: 500;
+            margin-top: 15px;
+            opacity: 0.85;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-            .time-box {
-                min-width: 80px;
-                padding: 20px 15px;
-            }
-            .time {
-                font-size: 2.5em;
-            }
-            .container {
-                padding: 40px 20px;
-            }
+            h1 { font-size: 2.4em; }
+            .time { font-size: 2.2em; }
+            .container { padding: 40px 20px; }
         }
     </style>
 </head>
+
 <body>
-    <div class="snowflakes" id="snowflakes"></div>
-    
-    <div class="container">
-        <h1><span class="emoji">🎁</span> Boxing Day Countdown <span class="emoji">🎁</span></h1>
-        <p class="subtitle">Get Ready for Amazing Deals!</p>
-        
-        <div class="countdown" id="countdown">
-            <div class="time-box">
-                <span class="time" id="days">00</span>
-                <span class="label">Days</span>
-            </div>
-            <div class="time-box">
-                <span class="time" id="hours">00</span>
-                <span class="label">Hours</span>
-            </div>
-            <div class="time-box">
-                <span class="time" id="minutes">00</span>
-                <span class="label">Minutes</span>
-            </div>
-            <div class="time-box">
-                <span class="time" id="seconds">00</span>
-                <span class="label">Seconds</span>
-            </div>
+
+<div class="snowflakes" id="snowflakes"></div>
+
+<div class="container">
+    <h1>🎁 Boxing Day Countdown 🎁</h1>
+    <p class="subtitle">Get Ready for Amazing Deals!</p>
+
+    <div class="countdown" id="countdown">
+        <div class="time-box">
+            <span class="time" id="days">00</span>
+            <span class="label">Days</span>
         </div>
-        
-        <div class="message" id="message">
-            December 26, 2026 - Don't miss out on incredible savings!        </div>
-        
-        <p class="date-display">📅 Boxing Day: December 26, 2026</p>    </div>
+        <div class="time-box">
+            <span class="time" id="hours">00</span>
+            <span class="label">Hours</span>
+        </div>
+        <div class="time-box">
+            <span class="time" id="minutes">00</span>
+            <span class="label">Minutes</span>
+        </div>
+        <div class="time-box">
+            <span class="time" id="seconds">00</span>
+            <span class="label">Seconds</span>
+        </div>
+    </div>
 
-    <script>
-        // Create snowflakes
-        function createSnowflakes() {
-            const snowflakesContainer = document.getElementById('snowflakes');
-            const snowflakeChars = ['❄', '❅', '❆'];
-            
-            for (let i = 0; i < 50; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-                snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
-                snowflake.style.left = Math.random() * 100 + '%';
-                snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                snowflake.style.animationDelay = Math.random() * 5 + 's';
-                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
-                snowflakesContainer.appendChild(snowflake);
-            }
+    <div class="message" id="message"></div>
+    <p class="date-display"></p>
+</div>
+
+<script>
+    // Snowflakes
+    function createSnowflakes() {
+        const container = document.getElementById('snowflakes');
+        const icons = ['❄', '❅', '❆'];
+
+        for (let i = 0; i < 50; i++) {
+            const snow = document.createElement('div');
+            snow.className = 'snowflake';
+            snow.textContent = icons[Math.floor(Math.random() * icons.length)];
+            snow.style.left = Math.random() * 100 + '%';
+            snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            snow.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            snow.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(snow);
         }
+    }
+    createSnowflakes();
 
-        createSnowflakes();
-
-        // Countdown Timer
-        function updateCountdown() {
-        // Calculate next Boxing Day dynamically
+    // Countdown Logic
+    function updateCountdown() {
         const now = new Date();
-        let boxingDay = new Date(now.getFullYear(), 11, 26, 0, 0, 0); // December 26 of current year
-        
-        // If Boxing Day has already passed this year, set it to next year
+        let boxingDay = new Date(now.getFullYear(), 11, 26);
+
         if (now > boxingDay) {
-            boxingDay = new Date(now.getFullYear() + 1, 11, 26, 0, 0, 0);
-        }            const distance = boxingDay - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            
-        // Update the year displayed in the message and date
-        const         document.querySelector('.date-display').textContent = `📅 Boxing Day: December 26, ${targetYear}`; = boxingDay.getFullYear();
-        document.getElementById('message').textContent = `December 26, ${targetYear} - Don't miss out on incredible savings!`;
-
-            if (distance < 0) {
-                document.getElementById('countdown').innerHTML = '<h2 style="color: #fff; font-size: 2.5em;">🎉 Boxing Day is Here! 🎉</h2>';
-                document.getElementById('message').textContent = 'Happy Boxing Day! Enjoy the amazing deals!';
-            }
+            boxingDay = new Date(now.getFullYear() + 1, 11, 26);
         }
 
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    </script>
+        const diff = boxingDay - now;
+
+        if (diff <= 0) {
+            document.getElementById('countdown').innerHTML =
+                '<h2>🎉 Boxing Day is Here! 🎉</h2>';
+            document.getElementById('message').textContent =
+                'Happy Boxing Day! Enjoy the best deals!';
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('days').textContent = String(days).padStart(2,'0');
+        document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+
+        const year = boxingDay.getFullYear();
+        document.getElementById('message').textContent =
+            `December 26, ${year} — Don’t miss out on incredible savings!`;
+        document.querySelector('.date-display').textContent =
+            `📅 Boxing Day: December 26, ${year}`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
+
 </body>
 </html>
