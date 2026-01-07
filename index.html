@@ -1,335 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="google-site-verification" content="BabyIyJJ6rc6pFceg3905x1P6Z2Y4iXQHlTkSI8FsLE" />
-    <!-- SEO Meta Tags -->
-    <title>Boxing Day Countdown 2026 | The Ultimate Holiday Sale Tracker</title>
-    <meta name="description" content="Witness the magic of the Boxing Day countdown. Track every second until the biggest shopping event of 2026 with our elegant, high-precision live timer.">
-    
+
+    <!-- Primary Meta Tags -->
+    <title>Boxing Day Countdown 2026 | Ultimate Holiday Sale Timer</title>
+    <meta name="title" content="Boxing Day Countdown 2026 | Ultimate Holiday Sale Timer">
+    <meta name="description"
+        content="The most advanced Boxing Day countdown timer. Track months, weeks, days, hours, minutes & seconds until December 26, 2026. Custom themes, timezone support, and shareable countdowns.">
+    <meta name="keywords"
+        content="Boxing Day, countdown, 2026, holiday sales, December 26, timer, countdown clock, shopping, deals">
+    <meta name="author" content="Boxing Day Countdown Hub">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://boxingdaycountdown.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boxingdaycountdown.com/">
+    <meta property="og:title" content="Boxing Day Countdown 2026 | Ultimate Holiday Timer">
+    <meta property="og:description"
+        content="Count down to the biggest shopping event of the year! Track every second until Boxing Day with our elegant, high-precision timer.">
+    <meta property="og:image" content="https://boxingdaycountdown.com/og-image.png">
+    <meta property="og:site_name" content="Boxing Day Countdown">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://boxingdaycountdown.com/">
+    <meta property="twitter:title" content="Boxing Day Countdown 2026">
+    <meta property="twitter:description"
+        content="Count down to Boxing Day! Track months, weeks, days, hours, minutes & seconds.">
+    <meta property="twitter:image" content="https://boxingdaycountdown.com/og-image.png">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#020617">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Boxing Day">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
 
-    <style>
-        :root {
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --accent: #ffcf7d; /* Champagne Gold */
-            --bg-base: #020617;
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Boxing Day Countdown",
+        "description": "The ultimate countdown timer for Boxing Day. Track the time remaining until December 26 with precision timing, multiple themes, and shareable countdowns.",
+        "url": "https://boxingdaycountdown.com",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Multi-unit countdown (months, weeks, days, hours, minutes, seconds)",
+            "Multi-year support (2024-2035)",
+            "Timezone auto-detection",
+            "Custom countdowns",
+            "Shareable links",
+            "Fullscreen mode",
+            "Multiple themes",
+            "Sound notifications",
+            "PWA support"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Boxing Day 2026",
+        "description": "Boxing Day - The biggest shopping event after Christmas featuring major sales and deals worldwide.",
+        "startDate": "2026-12-26T00:00:00",
+        "endDate": "2026-12-26T23:59:59",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+            "@type": "VirtualLocation",
+            "url": "https://boxingdaycountdown.com"
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "Boxing Day Countdown",
+            "url": "https://boxingdaycountdown.com"
         }
+    }
+    </script>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-base);
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.4) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(136, 19, 55, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, #020617 0%, #000 100%);
-            min-height: 100vh;
-            /* Allow vertical scrolling on small mobile if content overflows */
-            min-height: -webkit-fill-available; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Animated Mesh Gradient Overlays */
-        body::before, body::after {
-            content: "";
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            top: -25%;
-            left: -25%;
-            z-index: -1;
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        body::before {
-            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
-            animation: move-1 20s infinite alternate linear;
-        }
-
-        body::after {
-            background: radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.08) 0%, transparent 50%);
-            animation: move-2 25s infinite alternate linear;
-        }
-
-        @keyframes move-1 {
-            from { transform: translate(-10%, -10%) rotate(0deg); }
-            to { transform: translate(10%, 10%) rotate(360deg); }
-        }
-
-        @keyframes move-2 {
-            from { transform: translate(10%, 10%) rotate(0deg); }
-            to { transform: translate(-10%, -10%) rotate(-360deg); }
-        }
-
-        #snow-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .container {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            width: 100%;
-            max-width: 1100px;
-            padding: 40px 20px;
-            margin: auto;
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            /* Fluid typography: Min 2rem, Max 5.5rem */
-            font-size: clamp(2.2rem, 8vw, 5.5rem);
-            font-style: italic;
-            background: linear-gradient(to bottom, #ffffff 0%, #d1d5db 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.1;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-        }
-
-        .subtitle {
-            font-weight: 300;
-            letter-spacing: clamp(2px, 1vw, 5px);
-            text-transform: uppercase;
-            font-size: clamp(0.7rem, 2vw, 0.85rem);
-            color: var(--accent);
-            margin-bottom: clamp(30px, 8vw, 60px);
-            opacity: 0.8;
-            text-shadow: 0 0 10px rgba(255, 207, 125, 0.3);
-        }
-
-        /* Countdown Grid - Highly Responsive */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: clamp(12px, 3vw, 30px);
-            perspective: 1000px;
-        }
-
-        .unit {
-            position: relative;
-            background: var(--glass);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            /* Adaptive padding */
-            padding: clamp(15px, 4vw, 40px) clamp(10px, 2vw, 20px);
-            border-radius: clamp(15px, 3vw, 30px);
-            /* Adaptive width */
-            flex: 0 1 clamp(70px, 22%, 160px);
-            min-width: 80px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        /* Hover only for devices with a pointer (not touch) */
-        @media (hover: hover) {
-            .unit:hover {
-                transform: translateY(-12px);
-                background: rgba(255, 255, 255, 0.1);
-                border-color: rgba(255, 207, 125, 0.4);
-                box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.9);
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "When is Boxing Day 2026?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Boxing Day 2026 falls on Saturday, December 26, 2026."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Boxing Day?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Boxing Day is a holiday celebrated on December 26 in the United Kingdom, Canada, Australia, and other Commonwealth countries. It originated as a day to give gifts to servants and tradespeople, and has evolved into one of the biggest shopping days of the year with major sales and discounts."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why is it called Boxing Day?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The name 'Boxing Day' has several possible origins. The most common explanation is that it was the day when servants received 'Christmas boxes' (gifts of money or goods) from their employers. Another theory suggests it comes from the alms boxes in churches that were opened and distributed to the poor on this day."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which countries celebrate Boxing Day?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Boxing Day is celebrated in the United Kingdom, Canada, Australia, New Zealand, South Africa, and other Commonwealth nations. It is a public holiday in most of these countries."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How accurate is this countdown timer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our countdown uses high-precision timing with performance.now() API for sub-millisecond accuracy, with automatic fallback for older browsers. The timer automatically adjusts to your local timezone."
+                }
             }
-        }
+        ]
+    }
+    </script>
 
-        .number {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(1.8rem, 5vw, 4.5rem);
-            font-weight: 600;
-            display: block;
-            margin-bottom: 5px;
-            color: #fff;
-            letter-spacing: -1px;
-        }
-
-        .label {
-            font-size: clamp(0.55rem, 1.5vw, 0.75rem);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent);
-            font-weight: 600;
-            opacity: 0.9;
-        }
-
-        .footer-info {
-            margin-top: clamp(40px, 10vw, 80px);
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 10px;
-        }
-
-        .footer-info p {
-            font-size: clamp(0.85rem, 2vw, 1rem);
-            line-height: 1.8;
-            color: #94a3b8;
-            font-weight: 300;
-        }
-
-        /* Mobile specific adjustments for very small screens */
-        @media (max-width: 360px) {
-            .countdown {
-                gap: 8px;
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://boxingdaycountdown.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Boxing Day Countdown 2026",
+                "item": "https://boxingdaycountdown.com/2026"
             }
-            .unit {
-                min-width: 70px;
-                padding: 15px 5px;
-            }
-        }
-
-        /* Landscape orientation fix for mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            body { align-items: flex-start; }
-            .container { padding: 20px; }
-            header h1 { font-size: 2.5rem; }
-            .subtitle { margin-bottom: 20px; }
-            .footer-info { margin-top: 30px; }
-        }
-    </style>
+        ]
+    }
+    </script>
 </head>
-<body>
 
-<canvas id="snow-canvas"></canvas>
+<body data-theme="snow">
 
-<main class="container">
-    <header>
-        <h1>The Boxing Day</h1>
-        <p class="subtitle">Preparation for Greatness</p>
-    </header>
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-    <div class="countdown">
-        <div class="unit" aria-label="Days remaining">
-            <span class="number" id="days">00</span>
-            <span class="label">Days</span>
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-selector__toggle" id="theme-toggle" aria-label="Change theme">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                </path>
+            </svg>
+            <span id="current-theme-name">Winter Snow</span>
+        </button>
+        <div class="theme-selector__menu" id="theme-menu" role="menu"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <header class="header">
+            <h1 class="header__title">Boxing Day</h1>
+            <p class="header__subtitle">Countdown to the Ultimate Shopping Event</p>
+            <button class="header__year" id="year-display" aria-label="Change year">
+                December 26, 2026
+            </button>
+            <div class="timezone-display">
+                <svg class="timezone-display__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                </svg>
+                <span>Your timezone:</span>
+                <button class="timezone-selector" id="timezone-display">--</button>
+            </div>
+        </header>
+
+        <!-- Countdown Grid - 6 Units -->
+        <section class="countdown" aria-label="Countdown to Boxing Day">
+            <div class="countdown__unit" aria-label="Months remaining">
+                <span class="countdown__number" id="months">00</span>
+                <span class="countdown__label">Months</span>
+            </div>
+            <div class="countdown__unit" aria-label="Weeks remaining">
+                <span class="countdown__number" id="weeks">00</span>
+                <span class="countdown__label">Weeks</span>
+            </div>
+            <div class="countdown__unit" aria-label="Days remaining">
+                <span class="countdown__number" id="days">00</span>
+                <span class="countdown__label">Days</span>
+            </div>
+            <div class="countdown__unit" aria-label="Hours remaining">
+                <span class="countdown__number" id="hours">00</span>
+                <span class="countdown__label">Hours</span>
+            </div>
+            <div class="countdown__unit" aria-label="Minutes remaining">
+                <span class="countdown__number" id="minutes">00</span>
+                <span class="countdown__label">Minutes</span>
+            </div>
+            <div class="countdown__unit" aria-label="Seconds remaining">
+                <span class="countdown__number" id="seconds">00</span>
+                <span class="countdown__label">Seconds</span>
+            </div>
+        </section>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-bar__fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="progress-label">
+                <span>Start of Year</span>
+                <span><span id="progress-percent">0</span>% complete</span>
+                <span>Boxing Day</span>
+            </div>
         </div>
-        <div class="unit" aria-label="Hours remaining">
-            <span class="number" id="hours">00</span>
-            <span class="label">Hours</span>
-        </div>
-        <div class="unit" aria-label="Minutes remaining">
-            <span class="number" id="minutes">00</span>
-            <span class="label">Minutes</span>
-        </div>
-        <div class="unit" aria-label="Seconds remaining">
-            <span class="number" id="seconds">00</span>
-            <span class="label">Seconds</span>
+
+        <!-- Footer Info -->
+        <section class="footer-info">
+            <p class="footer-info__text">
+                Experience the anticipation of the year's premier shopping event.
+                Our <strong>Boxing Day countdown</strong> tracker features high-precision timing,
+                multiple themes, and works offline. Create custom countdowns and share with friends!
+            </p>
+
+            <!-- Share Buttons -->
+            <div class="share-section">
+                <button class="share-btn" id="share-main-btn" aria-label="Share this countdown">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                        <polyline points="16,6 12,2 8,6"></polyline>
+                        <line x1="12" y1="2" x2="12" y2="15"></line>
+                    </svg>
+                    Share
+                </button>
+                <button class="share-btn" id="embed-btn" aria-label="Embed this countdown">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <polyline points="16,18 22,12 16,6"></polyline>
+                        <polyline points="8,6 2,12 8,18"></polyline>
+                    </svg>
+                    Embed
+                </button>
+            </div>
+        </section>
+
+        <!-- FAQ Section for SEO -->
+        <section class="faq-section"
+            style="margin-top: 60px; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--accent);">Frequently Asked Questions</h2>
+
+            <details
+                style="margin-bottom: 15px; background: var(--glass); border-radius: 12px; padding: 15px; border: 1px solid var(--glass-border);">
+                <summary style="cursor: pointer; font-weight: 600; color: var(--text-primary);">When is Boxing Day 2026?
+                </summary>
+                <p style="margin-top: 10px; color: var(--text-secondary); line-height: 1.6;">Boxing Day 2026 falls on
+                    <strong>Saturday, December 26, 2026</strong>. This is the day after Christmas and marks the
+                    beginning of major post-holiday sales.
+                </p>
+            </details>
+
+            <details
+                style="margin-bottom: 15px; background: var(--glass); border-radius: 12px; padding: 15px; border: 1px solid var(--glass-border);">
+                <summary style="cursor: pointer; font-weight: 600; color: var(--text-primary);">What is Boxing Day?
+                </summary>
+                <p style="margin-top: 10px; color: var(--text-secondary); line-height: 1.6;">Boxing Day is a holiday
+                    celebrated on December 26 in the UK, Canada, Australia, and other Commonwealth countries. It
+                    originated as a day to give gifts to servants and tradespeople. Today, it's famous for massive
+                    retail sales and sporting events.</p>
+            </details>
+
+            <details
+                style="margin-bottom: 15px; background: var(--glass); border-radius: 12px; padding: 15px; border: 1px solid var(--glass-border);">
+                <summary style="cursor: pointer; font-weight: 600; color: var(--text-primary);">Why is it called Boxing
+                    Day?</summary>
+                <p style="margin-top: 10px; color: var(--text-secondary); line-height: 1.6;">The name likely comes from
+                    the tradition of giving "Christmas boxes" (gifts of money or goods) to servants and tradespeople.
+                    Another theory suggests it originates from alms boxes in churches distributed to the poor on this
+                    day.</p>
+            </details>
+
+            <details
+                style="margin-bottom: 15px; background: var(--glass); border-radius: 12px; padding: 15px; border: 1px solid var(--glass-border);">
+                <summary style="cursor: pointer; font-weight: 600; color: var(--text-primary);">Which countries
+                    celebrate Boxing Day?</summary>
+                <p style="margin-top: 10px; color: var(--text-secondary); line-height: 1.6;">Boxing Day is a public
+                    holiday in the UK, Canada, Australia, New Zealand, South Africa, Hong Kong, Nigeria, and other
+                    Commonwealth nations. While not an official holiday in the US, many retailers offer "Boxing Day"
+                    sales.</p>
+            </details>
+
+            <details
+                style="margin-bottom: 15px; background: var(--glass); border-radius: 12px; padding: 15px; border: 1px solid var(--glass-border);">
+                <summary style="cursor: pointer; font-weight: 600; color: var(--text-primary);">How do I create a custom
+                    countdown?</summary>
+                <p style="margin-top: 10px; color: var(--text-secondary); line-height: 1.6;">Click the "+" button in the
+                    control bar at the bottom of the screen to create a custom countdown. Enter a name and date, then
+                    share the generated link with friends and family!</p>
+            </details>
+        </section>
+    </main>
+
+    <!-- Control Bar -->
+    <nav class="controls" id="controls" aria-label="Timer controls">
+        <button class="control-btn" id="fullscreen-btn" aria-label="Toggle fullscreen" title="Fullscreen (F)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                </path>
+            </svg>
+        </button>
+        <button class="control-btn control-btn--active" id="sound-btn" aria-label="Toggle sound" title="Sound (M)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+        </button>
+        <button class="control-btn" id="test-sound-btn" aria-label="Test sound" title="Test Sound">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
+            </svg>
+        </button>
+        <button class="control-btn" id="share-btn" aria-label="Share countdown" title="Share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+        </button>
+        <button class="control-btn" id="custom-btn" aria-label="Create custom countdown" title="Custom countdown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Custom Countdown Modal -->
+    <div class="modal-overlay" id="custom-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+            <div class="modal__header">
+                <h2 class="modal__title" id="modal-title">Create Custom Countdown</h2>
+                <button class="modal__close" id="modal-close" aria-label="Close modal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <form id="custom-form">
+                <div class="form-group">
+                    <label for="custom-name">Event Name</label>
+                    <input type="text" id="custom-name" placeholder="e.g., My Birthday, New Year Party" required>
+                </div>
+                <div class="form-group">
+                    <label for="custom-date">Event Date & Time</label>
+                    <input type="datetime-local" id="custom-date" required>
+                </div>
+                <button type="submit" class="btn-primary">Create Countdown</button>
+            </form>
         </div>
     </div>
 
-    <section class="footer-info">
-        <p>
-            Experience the anticipation of the year's premier shopping event. 
-            Our <strong>Boxing Day countdown</strong> tracker is optimized for accuracy 
-            and elegance, ensuring you never miss a moment of the holiday sales.
-        </p>
-    </section>
-</main>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
-<script>
-    const canvas = document.getElementById('snow-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-
-    class Particle {
-        constructor() {
-            this.reset();
-        }
-        reset() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height - canvas.height;
-            this.size = Math.random() * 1.5 + 0.5;
-            this.speed = Math.random() * 0.4 + 0.1;
-            this.opacity = Math.random() * 0.4 + 0.1;
-            this.velX = Math.random() * 0.4 - 0.2;
-        }
-        update() {
-            this.y += this.speed;
-            this.x += this.velX;
-            if (this.y > canvas.height) this.reset();
-        }
-        draw() {
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    function initParticles() {
-        particles = [];
-        // Lower particle count on mobile for performance
-        const particleCount = window.innerWidth < 768 ? 60 : 120;
-        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
-        requestAnimationFrame(animate);
-    }
-
-    function updateTimer() {
-        const now = new Date();
-        let target = new Date(now.getFullYear(), 11, 26);
-        if (now > target) target = new Date(now.getFullYear() + 1, 11, 26);
-
-        const diff = target - now;
-        
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const m = Math.floor((diff / (1000 * 60)) % 60);
-        const s = Math.floor((diff / 1000) % 60);
-
-        document.getElementById('days').textContent = String(d).padStart(2, '0');
-        document.getElementById('hours').textContent = String(h).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(m).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(s).padStart(2, '0');
-    }
-
-    window.addEventListener('resize', () => {
-        resize();
-        initParticles();
-    });
-
-    resize();
-    initParticles();
-    animate();
-    setInterval(updateTimer, 1000);
-    updateTimer();
-</script>
+    <!-- Scripts -->
+    <script src="js/countdown.js"></script>
+    <script src="js/themes.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
+
 </html>

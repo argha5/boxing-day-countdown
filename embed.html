@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxing Day Countdown Widget</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: transparent;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .widget {
+            text-align: center;
+            padding: 20px;
+            background: rgba(2, 6, 23, 0.95);
+            border-radius: 16px;
+            color: white;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .widget--transparent {
+            background: transparent;
+        }
+
+        .widget__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ffcf7d;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .unit {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 8px;
+            border-radius: 10px;
+            min-width: 60px;
+            flex: 1;
+        }
+
+        .number {
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        .label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffcf7d;
+            opacity: 0.8;
+        }
+
+        .widget__link {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .widget__link:hover {
+            color: #ffcf7d;
+        }
+
+        /* Theme variations */
+        .widget--light {
+            background: rgba(255, 255, 255, 0.95);
+            color: #1a1a1a;
+        }
+
+        .widget--light .unit {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .widget--light .label {
+            color: #dc2626;
+        }
+
+        .widget--light .widget__title {
+            color: #dc2626;
+        }
+
+        .widget--compact .countdown {
+            gap: 5px;
+        }
+
+        .widget--compact .unit {
+            padding: 8px 5px;
+            min-width: 45px;
+        }
+
+        .widget--compact .number {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="widget" id="widget">
+        <div class="widget__title" id="title">Boxing Day Countdown</div>
+        <div class="countdown">
+            <div class="unit">
+                <span class="number" id="days">00</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="unit">
+                <span class="number" id="hours">00</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="unit">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Mins</span>
+            </div>
+            <div class="unit">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Secs</span>
+            </div>
+        </div>
+        <a class="widget__link" href="https://boxingdaycountdown.com" target="_blank" id="attribution">
+            Powered by BoxingDayCountdown.com
+        </a>
+    </div>
+
+    <script>
+        // Parse URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const year = parseInt(params.get('year')) || new Date().getFullYear();
+        const theme = params.get('theme') || 'dark';
+        const compact = params.get('compact') === 'true';
+        const hideLink = params.get('hideLink') === 'true';
+        const transparent = params.get('transparent') === 'true';
+        const customTitle = params.get('title');
+        const customDate = params.get('date');
+
+        // Apply theme
+        const widget = document.getElementById('widget');
+        if (theme === 'light') widget.classList.add('widget--light');
+        if (compact) widget.classList.add('widget--compact');
+        if (transparent) widget.classList.add('widget--transparent');
+        if (hideLink) document.getElementById('attribution').style.display = 'none';
+        if (customTitle) document.getElementById('title').textContent = customTitle;
+
+        // Calculate target date
+        let targetDate;
+        if (customDate) {
+            targetDate = new Date(customDate);
+        } else {
+            const now = new Date();
+            let targetYear = year || now.getFullYear();
+            targetDate = new Date(targetYear, 11, 26, 0, 0, 0, 0);
+            if (now > targetDate) {
+                targetDate = new Date(targetYear + 1, 11, 26, 0, 0, 0, 0);
+            }
+        }
+
+        // Update countdown
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = targetDate.getTime() - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        // Initial update and interval
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Inform parent frame of height for responsive embeds
+        if (window.parent !== window) {
+            const sendHeight = () => {
+                window.parent.postMessage({
+                    type: 'boxingday-widget-height',
+                    height: document.body.scrollHeight
+                }, '*');
+            };
+            sendHeight();
+            window.addEventListener('resize', sendHeight);
+        }
+    </script>
+</body>
+
+</html>
